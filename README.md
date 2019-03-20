@@ -26,7 +26,7 @@ php $path/crawl/crawl_program_jobs.php --method=getXXX
 因此，在爬取过程中新系统会给每次爬虫定义一个全量爬取的概念，当爬虫被设置为全量爬取时，系统会爬取'实时更新数据'和'基础数据'，并且'基础数据'会作防止重复爬取操作（在程序中控制是否缓存）；当爬虫被设置为非全量爬取时，系统仅会爬取'实时更新数据'。
 其中'实时更新数据'存储于表```batch_xxx_site_$networkId```中，'基础数据'存储于表```batch_xxx_$networkId```中，其二者区分由这个两张表决定，因此，在新添爬虫时，请注意数据类型的区分，数据项应该与表中的数据项一一对应。
 千万记住在写爬虫时，在做非全量爬取时，不要将'基础数据'做数据库更新，否则会被视为全量爬取，而向```batch_xxx_$networkId```中插入部分数据，而导致爬虫检测为数据异常。爬取流程图如下图示：
-![数据爬取流程图](http:api03.i.brandreward.com/crawl/crawl_principle.png "数据爬取流程图")
+![数据爬取流程图](http://api03.i.brandreward.com/crawl/crawl_principle.png "数据爬取流程图")
 
 #### 3. 数据检测原理
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -36,7 +36,7 @@ php $path/crawl_program_jobs.php --method=checkXXX
 ```
 ```crawl_program_jobs.php```脚本会先从数据库中读取爬虫配置表```aff_crawl_config```表中的数据，得到需要爬取的联盟列表，然后遍历联盟列表依次并行执行具体联盟的检测程序。
 其中单个联盟的检测流程如下图示：
-![数据检测流程图](http://wwww.api03.i.brandreward.com/crawl/check_principle.png "数据检测流程图")
+![数据检测流程图](http://api03.i.brandreward.com/crawl/check_principle.png "数据检测流程图")
 ##### 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 评定数据准确性的原理为：找到最新一次爬虫任务，将这次任务获取的数据（存储于```batch_xxx_site_$networkId，batch_xxx_$networkId```中）与正式数据

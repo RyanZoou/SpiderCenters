@@ -60,11 +60,11 @@ php $path/crawl/crawl_program_jobs.php --method=syncXXX
 API的访问脚本位于```br03```的```$path/web/crawl```，各种类型的数据API入口都在该目录下。
 
 #### *API访问说明（以program数据为例）：
-#####请求链接地址：
+请求链接地址：
 ```
 http://www.hiddendomain.com/crawl/program.php
 ```
-#####参数说明：
+参数说明：
 <table>
     <tr>
         <th>params</th>
